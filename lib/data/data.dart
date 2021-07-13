@@ -1,0 +1,1 @@
+List<String> datas = ['man','women','children','kids','cats','dogs','old'];
