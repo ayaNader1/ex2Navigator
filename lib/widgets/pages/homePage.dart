@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget{
   FormUser formUser;
-  HomePage(this.formUser);
+  HomePage([this.formUser]);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget{
       body: Column(
         children: [
           ElevatedButton(onPressed: (){
-            Navigator.of(context).pop();
+            Navigator.of(context).pop('hello sign in page');
           }, child: Text('Sign Out'))
         ],
       ),

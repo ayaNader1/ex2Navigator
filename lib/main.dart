@@ -1,4 +1,7 @@
+import 'package:ex2_form/router/router.dart';
+import 'package:ex2_form/widgets/pages/Eee.dart';
 import 'package:ex2_form/widgets/pages/customer_page.dart';
+import 'package:ex2_form/widgets/pages/homePage.dart';
 import 'package:ex2_form/widgets/pages/mershnt.dart';
 import 'package:flutter/material.dart';
 import 'package:string_validator/string_validator.dart';
@@ -16,7 +19,26 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FormA(),
+      navigatorKey: AppRouter.router.navKey,
+      routes: {
+        '/':(context)=>FormA(),
+        // 'home':(context)=>HomePage()
+      },
+      onGenerateRoute: (RouteSettings routeSetting){
+        String name = routeSetting.name;
+        var arguments = routeSetting.arguments;
+        if (name == 'home'){
+          return MaterialPageRoute(builder: (context){
+            return HomePage();
+          });
+        }else{
+          return MaterialPageRoute(builder: (context){
+            return EPage('404 Error');
+          });
+        }
+
+      },
+      // home: FormA(),
     );
   }
 }
