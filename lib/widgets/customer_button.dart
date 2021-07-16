@@ -1,5 +1,6 @@
 import 'dart:html';
 
+import 'package:ex2_form/helper/sharedPrefrences_helper.dart';
 import 'package:ex2_form/models/form_user.dart';
 import 'package:ex2_form/router/router.dart';
 import 'package:ex2_form/widgets/pages/homePage.dart';
@@ -16,15 +17,17 @@ class CustomButton extends StatelessWidget{
       child: ElevatedButton(
         onPressed: ()async{
           // AppRouter.router.pushFunction(HomePage());
-          AppRouter.router.pushNameFunction('home');
-          // var result = await Navigator.pushNamed(
-          //   context,
-          //   'home'
-          //     ,arguments: 'this is argument'
-          //   // MaterialPageRoute(
-          //   //     builder: (context) => HomePage(formUser)),
-          // );
-          // print(result);
+          // AppRouter.router.pushNameFunction('home');
+
+          SpHelper.spHelper.saveUser('user Sign In');
+          var result = await Navigator.pushNamed(
+            context,
+            'home'
+              ,arguments: 'this is argument'
+            // MaterialPageRoute(
+            //     builder: (context) => HomePage(formUser)),
+          );
+          print(result);
         },
         child: Text('Submit'),
       ),
@@ -32,3 +35,4 @@ class CustomButton extends StatelessWidget{
   }
 
 }
+

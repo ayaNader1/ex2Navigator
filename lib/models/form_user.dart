@@ -12,10 +12,14 @@ class FormUser {
   String catName;
   String bio;
   String shopAddress;
+
+  FormUser(this.catName);
+
   FormUser.customer(
       {@required this.username,
       @required this.password,
       this.userType = UserType.customer});
+
   FormUser.mershant (
       {@required this.username,
         @required this.password,
@@ -23,7 +27,8 @@ class FormUser {
         @required this.shopAddress,
         @required this.bio,
         @required this.catName ,
-        this.userType = UserType.customer});
+        this.userType = UserType.mershant});
+
   FormUser.formUserType(UserType userType,BuildContext context){
     if (userType == UserType.mershant){
       Navigator.of(context).push(MaterialPageRoute(builder: (context){
